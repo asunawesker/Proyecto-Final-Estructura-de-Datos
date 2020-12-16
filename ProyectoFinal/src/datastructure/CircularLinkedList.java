@@ -11,7 +11,7 @@ package datastructure;
  * @author asunawesker
  */
 public class CircularLinkedList <T> {
-private Node head;
+    private Node head;
     private Node tail;
     private int size; 
 
@@ -37,17 +37,21 @@ private Node head;
     }
     
     public void addLast(T data) {
-        Node node = new Node(data);
-        if (head == null) {
-            head = node;
-        } else {
-            Node currentNode = head;
-            while(currentNode.getNextNode() != null) {
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode.setNextNode(node);
-        }
-        size++;
+        Node newNode = new Node(data);
+        
+        newNode.setData(data);
+        newNode.setNextNode(null);
+        newNode.setPrevNode(tail);
+        
+        if(tail!=null)
+            tail.setNextNode(newNode);
+        
+        tail = newNode;
+        
+        if(head==null)
+            head=newNode;
+        
+        size++;        
     }
     
     public Node removeLast() {
@@ -82,5 +86,27 @@ private Node head;
 
     public boolean isEmpty() {
         return size == 0;
+    }
+    
+    public T returnBackward(){
+        //tail-->head
+        Node current = tail;
+        T tailBackward = null;
+        
+        do{
+            tailBackward = (T) current.getData();
+            current = current.getPrevNode();
+        } while((current != null));
+        
+        return tailBackward;
+    }
+    
+    public void printData() {
+        Node currentNode = head;
+        while(currentNode != null) {
+            T data = (T) currentNode.getData();
+            System.out.println(data);
+            currentNode = currentNode.getNextNode();
+        }
     }
 }

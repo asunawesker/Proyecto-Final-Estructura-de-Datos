@@ -11,7 +11,7 @@ package datastructure;
  * @author asunawesker
  */
 public class CircularDoublyLinkedList <T>{
-private Node head;
+    private Node head;
     private Node tail;
     private int size; 
 
@@ -35,33 +35,39 @@ private Node head;
     public void setSize(int size) {
         this.size = size;
     }
-
-    public void addFirst(int data) {
-        Node node = new Node(data);
+    
+    public void addFirst(T data) {
+        Node newNode = new Node(data);
         
-        node.setNextNode(head);
-        node.setPrevNode(null);
+        newNode.setData(data);
+        newNode.setNextNode(head);
+        newNode.setPrevNode(null);
         
         if(head!=null)
-            head.setPrevNode(node);
-        head = node;
+            head.setPrevNode(newNode);
+        head = newNode;
         if(tail==null)
-            tail=node;
-        size++;     
+            tail=newNode;
+        
+        size++;        
     }
     
     public void addLast(T data) {
-        Node node = new Node(data);
-        if (head == null) {
-            head = node;
-        } else {
-            Node currentNode = head;
-            while(currentNode.getNextNode() != null) {
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode.setNextNode(node);
-        }
-        size++;
+        Node newNode = new Node(data);
+        
+        newNode.setData(data);
+        newNode.setNextNode(null);
+        newNode.setPrevNode(tail);
+        
+        if(tail!=null)
+            tail.setNextNode(newNode);
+        
+        tail = newNode;
+        
+        if(head==null)
+            head=newNode;
+        
+        size++;        
     }
     
     public Node removeFirst() {
@@ -126,18 +132,14 @@ private Node head;
     
     public T returnBackward(){
         //tail-->head
-        Node currentNode = head;
+        Node current = tail;
+        T tailBackward = null;
         
-        T data = (T) currentNode.getData();
-        return data;
-    }
-    
-    public void printData() {
-        Node currentNode = head;
-        while(currentNode != null) {
-            T data = (T) currentNode.getData();
-            System.out.println(data);
-            currentNode = currentNode.getNextNode();
-        }
+        do{
+            tailBackward = (T) current.getData();
+            current = current.getPrevNode();
+        } while((current != null));
+        
+        return tailBackward;
     }
 }
