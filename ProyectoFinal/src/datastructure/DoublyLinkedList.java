@@ -35,7 +35,7 @@ public class DoublyLinkedList <T> {
         this.size = size;
     }
 
-    public void addFirst(int data) {
+    public void addFirst(T data) {
         Node node = new Node(data);
         
         node.setNextNode(head);

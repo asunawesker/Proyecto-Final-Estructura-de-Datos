@@ -10,12 +10,12 @@ package screens;
  * @author iragu
  */
 public class MainMenu extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form DoublyLinkedList
      */
     public MainMenu() {
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -75,6 +75,11 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu1.setText("Simple");
 
         btnSimple.setText("Lista simple");
+        btnSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpleActionPerformed(evt);
+            }
+        });
         jMenu1.add(btnSimple);
 
         btnCircular.setText("Lista circular simple");
@@ -154,6 +159,13 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCircularActionPerformed
 
+    private void btnSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpleActionPerformed
+        // TODO add your handling code here:
+        
+        new StudentsSimpleList().setVisible(true);       
+        
+    }//GEN-LAST:event_btnSimpleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -186,6 +198,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainMenu().setVisible(true);
             }

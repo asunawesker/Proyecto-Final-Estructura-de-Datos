@@ -91,7 +91,33 @@ public class SimpleLinkedList <T>{
             temp.getNextNode().getNextNode().setPrevNode(temp);
         
         temp.setNextNode(temp.getNextNode().getNextNode());
+        
+        size--;
     }
+    
+    public boolean remove(int index) {
+ 
+		// if the index is out of range, exit
+		if (index < 1 || index > listSize())
+			return false;
+ 
+		Node crunchifyCurrent = head;
+		if (head != null) {
+			for (int i = 0; i < index; i++) {
+				if (crunchifyCurrent.getNextNode()== null)
+					return false;
+ 
+				crunchifyCurrent = crunchifyCurrent.getNextNode();
+			}
+			crunchifyCurrent.setNextNode(crunchifyCurrent.getNextNode().getNextNode());
+ 
+			// decrement the number of elements variable
+			size--;
+			return true;
+ 
+		}
+		return false;
+	}
     
     public Node deleteAll(SimpleLinkedList list) {
         if (size == 0) 
@@ -112,4 +138,5 @@ public class SimpleLinkedList <T>{
     public boolean isEmpty() {
         return size == 0;
     }
+        
 }
