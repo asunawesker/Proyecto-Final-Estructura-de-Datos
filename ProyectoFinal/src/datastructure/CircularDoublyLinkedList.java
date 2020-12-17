@@ -113,6 +113,35 @@ public class CircularDoublyLinkedList <T>{
         return data;
     }
 
+    public void deleteAnyone(Node anyone) {
+        Node temp = head;
+        
+        while (temp.getNextNode()!= null && temp.getData() != anyone.getData()) {
+            temp = temp.getNextNode();
+        }
+        
+        if (temp.getNextNode()!= null)
+            temp.getNextNode().getNextNode().setPrevNode(temp);
+        
+        temp.setNextNode(temp.getNextNode().getNextNode());
+    }
+    
+    public Node deleteAll(SimpleLinkedList list) {
+        if (size == 0) 
+            throw new RuntimeException("Lista vacía");
+        
+        Node temp = head;
+        
+        for (int i=0; i<size; i++){
+            head = head.getNextNode();
+            head.setPrevNode(null); 
+
+            size--;
+        }
+                
+        return temp;
+    }
+    
     public boolean isEmpty() {
         return size == 0;
     }
