@@ -8,6 +8,8 @@ package screens;
 import datastructure.Node;
 import datastructure.Stack;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import objects.Book;
 import objects.Book;
 /**
@@ -42,9 +44,11 @@ public class StackBooks extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        btnProducts = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         total = new javax.swing.JLabel();
-        btnProducts1 = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
+        btnShow = new javax.swing.JButton();
+        btnTop1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,17 +78,31 @@ public class StackBooks extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 16)); // NOI18N
         jLabel1.setText("Lista ejemplares del libro \"Fundamentos de base de datos\"");
 
-        btnProducts.setText("Agregar personas");
-        btnProducts.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Agregar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductsActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        btnProducts1.setText("Quitar una persona");
-        btnProducts1.addActionListener(new java.awt.event.ActionListener() {
+        btnRemove.setText("Quitar");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducts1ActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
+            }
+        });
+
+        btnShow.setText("Mostrar datos");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        btnTop1.setText("Mostrar Top");
+        btnTop1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTop1ActionPerformed(evt);
             }
         });
 
@@ -93,23 +111,26 @@ public class StackBooks extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnProducts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(321, 321, 321)
-                        .addComponent(total)))
+                        .addComponent(total))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTop1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnShow))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
@@ -121,17 +142,19 @@ public class StackBooks extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(total)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducts)
-                .addGap(23, 23, 23)
-                .addComponent(btnProducts1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnRemove)
+                    .addComponent(btnTop1)
+                    .addComponent(btnShow))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Random random = new Random();
         randomId = random.nextInt(5);
         
@@ -147,13 +170,22 @@ public class StackBooks extends javax.swing.JFrame {
         
         if (stack.listLength() != 0)
             showData();
-    }//GEN-LAST:event_btnProductsActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducts1ActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         stack.pop();
         count--;
         showData(); 
-    }//GEN-LAST:event_btnProducts1ActionPerformed
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        showData();
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnTop1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTop1ActionPerformed
+        searchDataAndShow();
+    }//GEN-LAST:event_btnTop1ActionPerformed
     
     public void showData() {        
         
@@ -162,14 +194,28 @@ public class StackBooks extends javax.swing.JFrame {
             new String [] {
                 "Edición", "ID"
             }
+        ));        
+    }
+    
+    public void searchDataAndShow(){
+        
+        Book book = (Book) stack.peek();
+        
+        String matriz [][] = new String[1][2];
+        matriz[0][0] = book.getEdition();
+        matriz[0][1] = String.valueOf(book.getID());
+
+        tableProducts.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                "Edición", "ID"
+            }
         ));
-        
-        
     }
     
     public Object[][] matrix(Stack stack) {
         int i = 0;
-        Object matriz [][] = new Object [stack.listLength()][4];
+        Object matriz [][] = new Object [stack.listLength()][2];
         Node current = stack.head;
         
         while(current != null){
@@ -225,8 +271,10 @@ public class StackBooks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProducts;
-    private javax.swing.JButton btnProducts1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JButton btnTop1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

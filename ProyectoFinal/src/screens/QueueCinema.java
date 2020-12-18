@@ -148,8 +148,7 @@ public class QueueCinema extends javax.swing.JFrame {
 
     private void btnProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducts1ActionPerformed
         queue.dequeue();
-        if (queue.listLength() != 0)
-            showData();
+        showData();
     }//GEN-LAST:event_btnProducts1ActionPerformed
     
     public void showData() {        

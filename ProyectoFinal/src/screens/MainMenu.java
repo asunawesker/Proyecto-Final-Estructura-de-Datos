@@ -30,6 +30,9 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,11 +43,11 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         btnSimple = new javax.swing.JMenuItem();
         btnCircular = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         btnDoubly = new javax.swing.JMenuItem();
-        btnCircularDoubly = new javax.swing.JMenuItem();
         btnStack = new javax.swing.JMenu();
+        btnStackList = new javax.swing.JMenuItem();
         btnQueue1 = new javax.swing.JMenu();
+        btnQueueList = new javax.swing.JMenuItem();
         btnExit = new javax.swing.JMenu();
 
         jMenu3.setText("File");
@@ -52,6 +55,12 @@ public class MainMenu extends javax.swing.JFrame {
 
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
+
+        jMenu5.setText("File");
+        jMenuBar3.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,22 +101,43 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnLinkedList.add(jMenu1);
 
-        jMenu2.setText("Doble");
-
-        btnDoubly.setText("Lista doble");
-        jMenu2.add(btnDoubly);
-
-        btnCircularDoubly.setText("Lista doble circular");
-        jMenu2.add(btnCircularDoubly);
-
-        btnLinkedList.add(jMenu2);
+        btnDoubly.setText("Doble");
+        btnDoubly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoublyActionPerformed(evt);
+            }
+        });
+        btnLinkedList.add(btnDoubly);
 
         jMenuBar1.add(btnLinkedList);
 
         btnStack.setText("Pila");
+        btnStack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStackActionPerformed(evt);
+            }
+        });
+
+        btnStackList.setText("Programa pila");
+        btnStackList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStackListActionPerformed(evt);
+            }
+        });
+        btnStack.add(btnStackList);
+
         jMenuBar1.add(btnStack);
 
         btnQueue1.setText("Cola");
+
+        btnQueueList.setText("Programa cola");
+        btnQueueList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQueueListActionPerformed(evt);
+            }
+        });
+        btnQueue1.add(btnQueueList);
+
         jMenuBar1.add(btnQueue1);
 
         btnExit.setText("Salir");
@@ -157,6 +187,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnCircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCircularActionPerformed
         // TODO add your handling code here:
+        
+        AdministrativeCircular admin = new AdministrativeCircular();
+        admin.setVisible(true);
+        
     }//GEN-LAST:event_btnCircularActionPerformed
 
     private void btnSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpleActionPerformed
@@ -165,6 +199,34 @@ public class MainMenu extends javax.swing.JFrame {
         new StudentsSimpleList().setVisible(true);       
         
     }//GEN-LAST:event_btnSimpleActionPerformed
+
+    private void btnDoublyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoublyActionPerformed
+        // TODO add your handling code here:
+        
+        ProfessorDoublyList professor = new ProfessorDoublyList();
+        professor.setVisible(true);
+        
+    }//GEN-LAST:event_btnDoublyActionPerformed
+
+    private void btnQueueListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQueueListActionPerformed
+        // TODO add your handling code here:
+        
+        QueueCinema queue = new QueueCinema();
+        queue.setVisible(true);
+        
+    }//GEN-LAST:event_btnQueueListActionPerformed
+
+    private void btnStackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStackActionPerformed
+
+    private void btnStackListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStackListActionPerformed
+        // TODO add your handling code here:
+        
+        StackBooks stack = new StackBooks();
+        stack.setVisible(true);
+        
+    }//GEN-LAST:event_btnStackListActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,23 +269,26 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnCircular;
-    private javax.swing.JMenuItem btnCircularDoubly;
     private javax.swing.JMenuItem btnDoubly;
     private javax.swing.JMenu btnExit;
     private javax.swing.JMenu btnLinkedList;
     private javax.swing.JMenu btnQueue1;
+    private javax.swing.JMenuItem btnQueueList;
     private javax.swing.JMenuItem btnSimple;
     private javax.swing.JMenu btnStack;
+    private javax.swing.JMenuItem btnStackList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,33 +23,25 @@ public class Stack <T> {
       return head==null;
     }
     
-    public Stack push(T t) {
-        Node<T> nuevo = new Node<>(t);
-        nuevo.setData(t);
-
+    public void push(T t) {
+        Node nuevo = new Node(t);
         if (isEmpty()) {
             head = nuevo;
-        } else {
-            previous.setNextNode(nuevo);
         }
-
-        previous = nuevo;
-        
-        return this;
+        else{
+            nuevo.setNextNode(head);
+            head = nuevo;
+        }
     }   
     
     public void pop(){
         if (!isEmpty()) {
-            head = head.getNextNode(); 
+            head = head.getNextNode();
         }
     }
     
-    public T peek() throws Exception{
-        if(!isEmpty()){
-            return (T) head.getData();
-        } else {
-            throw new Exception("Stack is empty.");
-        }
+    public T peek(){
+        return (T) head.getData(); 
     }
 
     public T search(int pos){
