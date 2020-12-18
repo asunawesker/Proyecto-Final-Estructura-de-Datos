@@ -6,23 +6,25 @@
 package screens;
 
 import datastructure.Node;
-import datastructure.Queue;
+import datastructure.Stack;
 import java.util.Random;
-import objects.ClienteCine;
+import objects.Book;
+import objects.Book;
 /**
  *
  * @author asunawesker
  */
-public class QueueCinema extends javax.swing.JFrame {
+public class StackBooks extends javax.swing.JFrame {
     
-    int randomPerson; 
+    int count = 0;
+    int randomId; 
     int randomAge;
-    Queue queue = new Queue();
+    Stack stack = new Stack();
 
     /**
      * Creates new form Table
      */
-    public QueueCinema() {
+    public StackBooks() {
         initComponents();
     }
 
@@ -64,13 +66,13 @@ public class QueueCinema extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Edad", "Precio"
+                "Edición", "ID"
             }
         ));
         jScrollPane2.setViewportView(tableProducts);
 
-        jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 48)); // NOI18N
-        jLabel1.setText("Cola cine");
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 16)); // NOI18N
+        jLabel1.setText("Lista ejemplares del libro \"Fundamentos de base de datos\"");
 
         btnProducts.setText("Agregar personas");
         btnProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +93,12 @@ public class QueueCinema extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(203, 203, 203)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnProducts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
@@ -101,14 +109,8 @@ public class QueueCinema extends javax.swing.JFrame {
                 .addGap(0, 52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnProducts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,48 +133,49 @@ public class QueueCinema extends javax.swing.JFrame {
 
     private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
         Random random = new Random();
-        randomPerson = random.nextInt(10);
+        randomId = random.nextInt(5);
         
-        for (int i=0; i<randomPerson ; i++){
+        for (int i=0; i<randomId ; i++){
             randomAge = random.nextInt(100);
             
             if (randomAge >= 5) {
-                ClienteCine persona = new ClienteCine(randomAge);
-                queue.enqueue(persona);
+                count++;
+                Book book = new Book(randomAge, count);
+                stack.push(book);
             }
         }
         
-        if (queue.listLength() != 0)
+        if (stack.listLength() != 0)
             showData();
     }//GEN-LAST:event_btnProductsActionPerformed
 
     private void btnProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducts1ActionPerformed
-        queue.dequeue();
-        if (queue.listLength() != 0)
-            showData();
+        stack.pop();
+        count--;
+        showData(); 
     }//GEN-LAST:event_btnProducts1ActionPerformed
     
     public void showData() {        
         
         tableProducts.setModel(new javax.swing.table.DefaultTableModel(
-            matrix(queue),
+            matrix(stack),
             new String [] {
-                "Edad", "Precio"
+                "Edición", "ID"
             }
         ));
         
         
     }
     
-    public Object[][] matrix(Queue queue) {
+    public Object[][] matrix(Stack stack) {
         int i = 0;
-        Object matriz [][] = new Object [queue.listLength()][4];
-        Node current = queue.head;
+        Object matriz [][] = new Object [stack.listLength()][4];
+        Node current = stack.head;
         
         while(current != null){
-            ClienteCine persona = (ClienteCine) current.getData();
-            matriz[i][0] = persona.getEdad();
-            matriz[i][1] = persona.getPrecio();
+            Book book = (Book) current.getData();
+            matriz[i][0] = book.getEdition();
+            matriz[i][1] = book.getID();
            
             current = current.getNextNode();
             
@@ -199,21 +202,24 @@ public class QueueCinema extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QueueCinema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StackBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QueueCinema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StackBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QueueCinema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StackBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QueueCinema.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StackBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new QueueCinema().setVisible(true);
+                new StackBooks().setVisible(true);
             }
         });
     }

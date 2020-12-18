@@ -9,13 +9,13 @@ package datastructure;
  *
  * @author asunawesker
  */
-public class QueueList <T> {
+public class Queue <T> {
 
     public Node<T> head;
     public Node<T> tail;
   
 
-    public QueueList() {
+    public Queue() {
        head=null;
     }
     

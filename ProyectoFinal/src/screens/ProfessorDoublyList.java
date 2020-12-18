@@ -35,21 +35,29 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAdd = new javax.swing.JButton();
-        btnRemove = new javax.swing.JButton();
-        btnModify = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
-        btnConsult = new javax.swing.JButton();
         labelInscritos = new javax.swing.JLabel();
+        btnShow = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
+        txtLastName = new javax.swing.JTextField();
+        btnRemove = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtIdSearch = new javax.swing.JTextField();
+        btnConsult = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtLastName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtIdSearch = new javax.swing.JTextField();
-        btnShow = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtIdModify = new javax.swing.JTextField();
+        txtNewName = new javax.swing.JTextField();
+        txtNewLastName = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btnModify = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +70,29 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        btnOrder.setText("Ordenar");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+
+        labelInscritos.setFont(new java.awt.Font("Nirmala UI Semilight", 0, 36)); // NOI18N
+        labelInscritos.setText("Profesores");
+
+        btnShow.setText("Mostrar datos");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
 
         btnAdd.setText("Añadir");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -77,14 +108,8 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
             }
         });
 
-        btnModify.setText("Modificar");
-
-        btnOrder.setText("Ordenar");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
-            }
-        });
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel4.setText("ID");
 
         btnConsult.setText("Consultar");
         btnConsult.addActionListener(new java.awt.event.ActionListener() {
@@ -92,9 +117,6 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
                 btnConsultActionPerformed(evt);
             }
         });
-
-        labelInscritos.setFont(new java.awt.Font("Nirmala UI Semilight", 0, 36)); // NOI18N
-        labelInscritos.setText("Profesores");
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel1.setText("Apellido");
@@ -105,19 +127,25 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setText("ID");
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel6.setText("Nuevo apellido");
 
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel4.setText("ID");
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel5.setText("ID");
 
-        btnShow.setText("Mostrar datos");
-        btnShow.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel7.setText("Nuevo nombre");
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel8.setText("Cambiar datos");
+
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel9.setText("Ingresa la matrícula del estudiante a cambiar datos");
+
+        btnModify.setText("Modificar");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowActionPerformed(evt);
+                btnModifyActionPerformed(evt);
             }
         });
 
@@ -125,47 +153,6 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(103, 103, 103)
-                                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(65, 65, 65)
-                                        .addComponent(btnConsult))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(116, 116, 116)
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(425, 425, 425))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -175,54 +162,161 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
                         .addGap(419, 419, 419)
                         .addComponent(labelInscritos)))
                 .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(344, 344, 344)
+                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnConsult))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(37, 37, 37)
+                        .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtNewLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtNewName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(51, 51, 51)
+                                .addComponent(txtIdModify, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdd)
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(btnOrder)
-                        .addGap(2, 2, 2)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRemove)
-                            .addComponent(btnConsult))
-                        .addGap(2, 2, 2)))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnModify))
-                .addGap(56, 56, 56)
+                            .addComponent(btnConsult)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(211, 211, 211)
+                                .addComponent(btnModify))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtIdModify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(txtNewName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtNewLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6))))))))
+                .addGap(18, 18, 18)
                 .addComponent(labelInscritos)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnShow)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnShow)
+                    .addComponent(btnOrder))
+                .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOrderActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        showAllData();
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:     
-        
+        // TODO add your handling code here:
+        addProfessor();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // TODO add your handling code here:
+        //deleteData();
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultActionPerformed
+        // TODO add your handling code here:
+        searchDataAndShow();
+    }//GEN-LAST:event_btnConsultActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+        searchDataAndModify();
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    
+    public void addProfessor() {
         int id = Integer.parseInt(txtId.getText());
                 
         Professor newProfessor = new Professor(txtName.getText(), txtLastName.getText(), id);
@@ -239,56 +333,8 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         txtName.setText("");
         txtLastName.setText("");
         txtId.setText("");
-                
-    }//GEN-LAST:event_btnAddActionPerformed
-
-    private void btnConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultActionPerformed
-        // TODO add your handling code here:
-        int id = Integer.parseInt(txtId.getText());
-        
-        Node current = list.getHead();
-        
-        for(int i=0; i<list.listSize(); i++){
-            
-            Professor professor = (Professor) list.search(i);   
-            
-            if ( professor.getId() == id) {
-                
-                
-                String matriz [][] = new String[1][4];
-                matriz[0][0] = professor.getNombre();
-                matriz[0][1] = professor.getApellido();
-                matriz[0][2] = String.valueOf(professor.getId());
-                
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    matriz,
-                    new String [] {
-                        "Nombre", "Apellido", "ID"
-                    }
-                ));
-            }
-        }
-        
-    }//GEN-LAST:event_btnConsultActionPerformed
-
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // TODO add your handling code here:
-        showAllData();
-    }//GEN-LAST:event_btnShowActionPerformed
-
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
-        deleteData();
-    }//GEN-LAST:event_btnRemoveActionPerformed
-
+    }
+    
     public void showAllData() {
         int i = 0;
         String matriz [][] = new String[list.listSize()][4];
@@ -313,16 +359,16 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         ));
     }
     
-    public void searchData() {
+    public void searchDataAndShow(){
         int i = 0;
-        String matriz [][] = new String[list.listSize()][4];
+        String matriz [][] = new String[1][4];
         Node current = list.getHead();
         
         while(current != null){
             Professor professor = (Professor) list.search(i);  
-            matriz[i][0] = professor.getNombre();
-            matriz[i][1] = professor.getApellido();
-            matriz[i][2] = String.valueOf(professor.getId());
+            matriz[0][0] = professor.getNombre();
+            matriz[0][1] = professor.getApellido();
+            matriz[0][2] = String.valueOf(professor.getId());
            
             current = current.getNextNode();
             
@@ -332,9 +378,30 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             matriz,
             new String [] {
-                "Nombre", "Apellido", "Matricula"
+                "Nombre", "Apellido", "ID"
             }
         ));
+    }
+    
+    public void searchDataAndModify() {
+        int id = Integer.parseInt(txtIdModify.getText());
+        String name = txtNewName.getText();
+        String lastName = txtNewLastName.getText();
+        
+        Node current = list.getHead();
+        
+        for(int i=0; i<list.listSize(); i++){
+            
+            Professor professor = (Professor) list.search(i);   
+            
+            if ( professor.getId() == id) {
+                professor.setNombre(name);
+                professor.setApellido(lastName);
+                
+            }
+        }
+        
+        showAllData();
     }
     
     public void deleteData() {
@@ -417,12 +484,20 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelInscritos;
     private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIdModify;
     private javax.swing.JTextField txtIdSearch;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNewLastName;
+    private javax.swing.JTextField txtNewName;
     // End of variables declaration//GEN-END:variables
 }

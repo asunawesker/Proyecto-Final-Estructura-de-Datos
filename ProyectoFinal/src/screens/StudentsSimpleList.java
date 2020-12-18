@@ -50,6 +50,14 @@ public class StudentsSimpleList extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtEnrollmentSearch = new javax.swing.JTextField();
         btnShow = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtEnrollmentModify = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtNewName = new javax.swing.JTextField();
+        txtNewLastName = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +86,11 @@ public class StudentsSimpleList extends javax.swing.JFrame {
         });
 
         btnModify.setText("Modificar");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
 
         btnOrder.setText("Ordenar");
         btnOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -121,98 +134,146 @@ public class StudentsSimpleList extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel5.setText("Matrícula");
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel6.setText("Nuevo apellido");
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel7.setText("Nuevo nombre");
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel8.setText("Cambiar datos");
+
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel9.setText("Ingresa la matrícula del estudiante a cambiar datos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(332, 332, 332)
-                .addComponent(labelInscritos)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(130, 130, 130)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(333, 333, 333)
+                        .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
+                                .addGap(162, 162, 162)
+                                .addComponent(labelInscritos))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
+                                        .addGap(10, 10, 10)
                                         .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(65, 65, 65)
                                         .addComponent(btnConsult))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel1))
+                                        .addGap(30, 30, 30)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                                .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(37, 37, 37)
-                                        .addComponent(txtEnrollmentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEnrollmentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(170, 170, 170)
+                                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(162, 162, 162)
+                                        .addComponent(jLabel8))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtNewLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(jLabel5)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtEnrollmentModify, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(jLabel7)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtNewName, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(64, 64, 64)
+                                        .addComponent(jLabel9)))))))
                 .addContainerGap(125, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(425, 425, 425))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModify)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEnrollmentModify, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtEnrollmentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(btnOrder)
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRemove)
-                            .addComponent(btnConsult))
-                        .addGap(2, 2, 2)))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnModify))
-                .addGap(57, 57, 57)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7)
+                                .addComponent(txtNewName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtNewLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAdd)
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtEnrollmentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnRemove)
+                                    .addComponent(btnConsult))))))
+                .addGap(13, 13, 13)
                 .addComponent(labelInscritos)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnShow)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnShow)
+                    .addComponent(btnOrder))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -220,53 +281,17 @@ public class StudentsSimpleList extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:     
-        
-        int enrollment = Integer.parseInt(txtEnrollment.getText());
-        
-        Student newStudent = new Student(txtName.getText(), txtLastName.getText(), enrollment);
-
-        list.addLast(newStudent);
-
-        showAllData();
-
-        txtName.setText("");
-        txtLastName.setText("");
-        txtEnrollment.setText("");
-                
+        addStudent();       
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultActionPerformed
         // TODO add your handling code here:
-        int id = Integer.parseInt(txtEnrollmentSearch.getText());
-        
-        Node current = list.getHead();
-        
-        for(int i=0; i<list.listSize(); i++){
-            
-            Student student = (Student) list.search(i);   
-            
-            if ( student.getMatricula()== id) {
-                
-                
-                String matriz [][] = new String[1][4];
-                matriz[0][0] = student.getNombre();
-                matriz[0][1] = student.getApellido();
-                matriz[0][2] = String.valueOf(student.getMatricula());
-                
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                    matriz,
-                    new String [] {
-                        "Nombre", "Apellido", "ID"
-                    }
-                ));
-            }
-        }
-        
+        searchDataAndShow();
     }//GEN-LAST:event_btnConsultActionPerformed
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-        sort();
+        //sort();
     }//GEN-LAST:event_btnOrderActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -280,9 +305,28 @@ public class StudentsSimpleList extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        deleteData();
+        //deleteData();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+        searchDataAndModify();
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    public void addStudent() {
+        int enrollment = Integer.parseInt(txtEnrollment.getText());
+        
+        Student newStudent = new Student(txtName.getText(), txtLastName.getText(), enrollment);
+
+        list.addLast(newStudent);
+
+        showAllData();
+
+        txtName.setText("");
+        txtLastName.setText("");
+        txtEnrollment.setText("");
+    }
+    
     public void showAllData() {
         int i = 0;
         String matriz [][] = new String[list.listSize()][4];
@@ -307,30 +351,55 @@ public class StudentsSimpleList extends javax.swing.JFrame {
         ));
     }
     
-    public void searchData() {
-        int i = 0;
-        String matriz [][] = new String[list.listSize()][4];
+    public void searchDataAndShow() {
+        int id = Integer.parseInt(txtEnrollmentSearch.getText());
+        
         Node current = list.getHead();
         
-        while(current != null){
-            Student student = (Student) current.getData();
-            matriz[i][0] = student.getNombre();
-            matriz[i][1] = student.getApellido();
-            matriz[i][2] = String.valueOf(student.getMatricula());
-           
-            current = current.getNextNode();
+        for(int i=0; i<list.listSize(); i++){
             
-            i++;
-        }
-        
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            matriz,
-            new String [] {
-                "Nombre", "Apellido", "Matricula"
+            Student student = (Student) list.search(i);   
+            
+            if ( student.getMatricula()== id) {
+                
+                
+                String matriz [][] = new String[1][4];
+                matriz[0][0] = student.getNombre();
+                matriz[0][1] = student.getApellido();
+                matriz[0][2] = String.valueOf(student.getMatricula());
+                
+                jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String [] {
+                        "Nombre", "Apellido", "ID"
+                    }
+                ));
             }
-        ));
+        }
     }
     
+    public void searchDataAndModify() {
+        int id = Integer.parseInt(txtEnrollmentModify.getText());
+        String name = txtNewName.getText();
+        String lastName = txtNewLastName.getText();
+        
+        Node current = list.getHead();
+        
+        for(int i=0; i<list.listSize(); i++){
+            
+            Student student = (Student) list.search(i);   
+            
+            if ( student.getMatricula()== id) {
+                student.setNombre(name);
+                student.setApellido(lastName);
+                
+            }
+        }
+        
+        showAllData();
+    }
+    
+    /*
     public void deleteData() {
         int i = 0;
         int enrollment = Integer.parseInt(txtEnrollmentSearch.getText());
@@ -395,6 +464,7 @@ public class StudentsSimpleList extends javax.swing.JFrame {
             } 
         }
     }
+    */
     
     /**
      * @param args the command line arguments
@@ -449,12 +519,20 @@ public class StudentsSimpleList extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelInscritos;
     private javax.swing.JTextField txtEnrollment;
+    private javax.swing.JTextField txtEnrollmentModify;
     private javax.swing.JTextField txtEnrollmentSearch;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNewLastName;
+    private javax.swing.JTextField txtNewName;
     // End of variables declaration//GEN-END:variables
 }
