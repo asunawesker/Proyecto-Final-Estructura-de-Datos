@@ -39,7 +39,6 @@ public class CircularDoublyLinkedList <T>{
     public void addFirst(T data) {
         Node newNode = new Node(data);
         
-        newNode.setData(data);
         newNode.setNextNode(head);
         newNode.setPrevNode(null);
         

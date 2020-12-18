@@ -37,27 +37,27 @@ public class SimpleLinkedList <T>{
     }
     
     public void addLast(T data) {
-        Node node = new Node(data);
-        if (head == null) {
-            head = node;
-        } else {
-            Node currentNode = head;
-            while(currentNode.getNextNode() != null) {
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode.setNextNode(node);
-        }
-        size++;
+        Node newNode = new Node(data);
+        newNode.setNextNode(null);
+        newNode.setPrevNode(tail);
+        
+        if(tail!=null)
+            tail.setNextNode(newNode);
+        
+        tail = newNode;
+        
+        if(head==null)
+            head=newNode;
+        
+        size++; 
     }
     
-    public Node removeLast() {
+    public void deleteLast() {
         Node temp = tail;
         tail = tail.getPrevNode();
         tail.setNextNode(null);
         
-        size--;
-        
-        return temp;
+        size--;        
     }
     
     public int listSize() {     
@@ -93,14 +93,6 @@ public class SimpleLinkedList <T>{
         temp.setNextNode(temp.getNextNode().getNextNode());
         
         size--;
-    }
-    
-    public void eliminar(Node nodo) {
-            Node <T> nodoPrevio = nodo.getPrevNode();
-            Node <T> nodoSiguiente = nodo.getNextNode();
-            nodoPrevio.setNextNode(nodoSiguiente);
-            nodoSiguiente.setPrevNode(nodoPrevio);
-            size-=1;
     }
     
     public Node deleteAll(SimpleLinkedList list) {

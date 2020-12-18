@@ -41,7 +41,7 @@ public class Main {
             String apellido = sc.next();
 
             System.out.println("Matricula: ");
-            String matri = sc.next();
+            int matri = sc.nextInt();
             
             System.out.println("S o N: ");
             op = sc.next();
@@ -56,11 +56,13 @@ public class Main {
         }        
             
         System.out.println("Eliminando elemento: ");
-        int index = sc.nextInt();
+        list.deleteLast();
         
-        list.remove(index);
+        for (int i=0; i<list.listSize(); i++) {
+            Student student = (Student) list.search(i);
+            System.out.println(student.getMatricula());
+        }    
         */
-         
     }
 
 }

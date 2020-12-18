@@ -325,7 +325,7 @@ public class AdministrativeCircular extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOrderListActionPerformed
 
     public void addAministrativeStaff(){
-         int id = Integer.parseInt(txtId.getText());
+        int id = Integer.parseInt(txtId.getText());
                 
         AdministrativeStaff newAdministrativeStaff = new AdministrativeStaff(txtName.getText(), txtLastName.getText(), id);
         

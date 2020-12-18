@@ -20,10 +20,6 @@ public class Node <T> {
         this.nextNode = null;       
     }
 
-    Node() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public T getData() {
         return this.data;
     }

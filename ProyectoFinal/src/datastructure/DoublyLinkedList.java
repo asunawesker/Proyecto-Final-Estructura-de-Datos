@@ -36,17 +36,18 @@ public class DoublyLinkedList <T> {
     }
 
     public void addFirst(T data) {
-        Node node = new Node(data);
+        Node newNode = new Node(data);
         
-        node.setNextNode(head);
-        node.setPrevNode(null);
+        newNode.setNextNode(head);
+        newNode.setPrevNode(null);
         
         if(head!=null)
-            head.setPrevNode(node);
-        head = node;
+            head.setPrevNode(newNode);
+        head = newNode;
         if(tail==null)
-            tail=node;
-        size++;     
+            tail=newNode;
+        
+        size++;        
     }
     
     public void addLast(T data) {
