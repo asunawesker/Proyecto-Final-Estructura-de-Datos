@@ -161,8 +161,8 @@ public class StudentsSimpleList extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(333, 333, 333)
                         .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(65, 65, 65)
+                        .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,6 +277,7 @@ public class StudentsSimpleList extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -291,7 +292,10 @@ public class StudentsSimpleList extends javax.swing.JFrame {
 
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-        //sort();
+        
+        sort();
+        showAllData();
+        
     }//GEN-LAST:event_btnOrderActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -399,7 +403,6 @@ public class StudentsSimpleList extends javax.swing.JFrame {
         showAllData();
     }
     
-    /*
     public void deleteData() {
         int i = 0;
         int enrollment = Integer.parseInt(txtEnrollmentSearch.getText());
@@ -419,25 +422,22 @@ public class StudentsSimpleList extends javax.swing.JFrame {
     }
     
     public void sort() {
-        int i = 0;
-        if (list.listSize() > 1) {
+        if (list.getSize() > 1) {
             boolean wasChanged = true;
-            Node head = list.getHead();
-            
             while( wasChanged ) {
-                Node current = head;
+                Node current = list.getHead();
                 Node previous = null;
-                Node next = head.getNextNode();
-                wasChanged = false;                
-                
+                Node next = list.getHead().getNextNode();
+                wasChanged = false;
                 while ( next != null ) {
-                    Student student = (Student) list.search(i);
-                    int currentData = student.getMatricula();
-                    int nextData = (int) next.getData();
+                    Student currentData = (Student) current.getData();
+                    Student nextData = (Student) next.getData();
                     
-                    if ( currentData > nextData ) {
+                    int cDataEnrollment = currentData.getMatricula();
+                    int nDataEnrollment = nextData.getMatricula();
+                    
+                    if ( cDataEnrollment > nDataEnrollment ) {
                         wasChanged = true;
-                        
                         if ( previous != null ) {
                             Node sig = next.getNextNode();
 
@@ -446,8 +446,9 @@ public class StudentsSimpleList extends javax.swing.JFrame {
                             current.setNextNode(sig);
                         } else {
                             Node sig = next.getNextNode();
-
-                            head = next;
+                            
+                            Node cHead = list.getHead();
+                            cHead = next;
                             next.setNextNode(current);
                             current.setNextNode(sig);
                         }
@@ -459,12 +460,11 @@ public class StudentsSimpleList extends javax.swing.JFrame {
                         current = next;
                         next = next.getNextNode();
                     }
-                    i++;
                 } 
             } 
         }
     }
-    */
+    
     
     /**
      * @param args the command line arguments

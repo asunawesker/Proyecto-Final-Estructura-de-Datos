@@ -56,7 +56,6 @@ public class AdministrativeCircular extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
         btnOrderList = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,8 +141,6 @@ public class AdministrativeCircular extends javax.swing.JFrame {
             }
         });
 
-        btnOrder.setText("Ordenar");
-
         btnOrderList.setText("Ordenar");
         btnOrderList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,11 +216,6 @@ public class AdministrativeCircular extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(txtIdModify, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(158, 158, 158))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnOrder)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +254,6 @@ public class AdministrativeCircular extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(27, 27, 27)
                         .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7)
@@ -281,14 +272,10 @@ public class AdministrativeCircular extends javax.swing.JFrame {
                     .addComponent(btnShow)
                     .addComponent(btnOrderList))
                 .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnOrder)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
@@ -501,7 +488,6 @@ public class AdministrativeCircular extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnConsult;
     private javax.swing.JButton btnModify;
-    private javax.swing.JButton btnOrder;
     private javax.swing.JButton btnOrderList;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnShow;

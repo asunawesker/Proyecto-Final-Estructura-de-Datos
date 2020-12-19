@@ -183,6 +183,7 @@ public class MainMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCircularActionPerformed
