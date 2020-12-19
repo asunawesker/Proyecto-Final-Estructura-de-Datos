@@ -40,9 +40,11 @@ public class QueueCinema extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        btnProducts = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         total = new javax.swing.JLabel();
-        btnProducts1 = new javax.swing.JButton();
+        btnPoll = new javax.swing.JButton();
+        btnPeek = new javax.swing.JButton();
+        btnShow = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,7 +59,7 @@ public class QueueCinema extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tableProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,17 +74,31 @@ public class QueueCinema extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei Light", 0, 48)); // NOI18N
         jLabel1.setText("Cola cine");
 
-        btnProducts.setText("Agregar personas");
-        btnProducts.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Agregar personas");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductsActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        btnProducts1.setText("Quitar una persona");
-        btnProducts1.addActionListener(new java.awt.event.ActionListener() {
+        btnPoll.setText("Quitar una persona");
+        btnPoll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducts1ActionPerformed(evt);
+                btnPollActionPerformed(evt);
+            }
+        });
+
+        btnPeek.setText("Mostrar primero");
+        btnPeek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPeekActionPerformed(evt);
+            }
+        });
+
+        btnShow.setText("Mostrar todo");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
             }
         });
 
@@ -91,50 +107,75 @@ public class QueueCinema extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(total)))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGap(321, 321, 321)
+                .addComponent(total)
+                .addGap(0, 405, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(btnPoll)
+                .addGap(37, 37, 37)
+                .addComponent(btnPeek, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnProducts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(133, 133, 133))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(243, 243, 243))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(total)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducts)
-                .addGap(23, 23, 23)
-                .addComponent(btnProducts1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPoll)
+                    .addComponent(btnAdd)
+                    .addComponent(btnPeek)
+                    .addComponent(btnShow))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductsActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        add();
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnPollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPollActionPerformed
+        queue.poll();
+        showData();
+    }//GEN-LAST:event_btnPollActionPerformed
+
+    private void btnPeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeekActionPerformed
+        // TODO add your handling code here:
+        searchDataAndShow();        
+    }//GEN-LAST:event_btnPeekActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        showData();
+    }//GEN-LAST:event_btnShowActionPerformed
+    
+    public void add(){
         Random random = new Random();
         randomPerson = random.nextInt(10);
         
-        for (int i=0; i<randomPerson ; i++){
+        for (int i=0; i<1 ; i++){
             randomAge = random.nextInt(100);
             
             if (randomAge >= 5) {
@@ -145,12 +186,7 @@ public class QueueCinema extends javax.swing.JFrame {
         
         if (queue.listLength() != 0)
             showData();
-    }//GEN-LAST:event_btnProductsActionPerformed
-
-    private void btnProducts1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducts1ActionPerformed
-        queue.dequeue();
-        showData();
-    }//GEN-LAST:event_btnProducts1ActionPerformed
+    }
     
     public void showData() {        
         
@@ -159,9 +195,23 @@ public class QueueCinema extends javax.swing.JFrame {
             new String [] {
                 "Edad", "Precio"
             }
+        ));       
+    }
+    
+    public void searchDataAndShow(){
+        
+        ClienteCine cliente = (ClienteCine) queue.peek();
+        
+        String matriz [][] = new String[1][2];
+        matriz[0][0] = String.valueOf(cliente.getEdad());
+        matriz[0][1] = String.valueOf(cliente.getPrecio());
+
+        tableProducts.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                "Edad", "Precio"
+            }
         ));
-        
-        
     }
     
     public Object[][] matrix(Queue queue) {
@@ -219,8 +269,10 @@ public class QueueCinema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProducts;
-    private javax.swing.JButton btnProducts1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnPeek;
+    private javax.swing.JButton btnPoll;
+    private javax.swing.JButton btnShow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

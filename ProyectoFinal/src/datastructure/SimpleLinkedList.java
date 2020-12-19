@@ -35,9 +35,11 @@ public class SimpleLinkedList <T>{
     public void setSize(int size) {
         this.size = size;
     }
-    
+        
     public void addLast(T data) {
         Node newNode = new Node(data);
+        
+        newNode.setData(data);
         newNode.setNextNode(null);
         newNode.setPrevNode(tail);
         
@@ -49,15 +51,30 @@ public class SimpleLinkedList <T>{
         if(head==null)
             head=newNode;
         
-        size++; 
+        size++;        
     }
     
-    public void deleteLast() {
+    public Node removeFirst() {
+        if (size == 0) 
+            throw new RuntimeException("Lista vacía");
+        
+        Node temp = head;
+        head = head.getNextNode();
+        head.setPrevNode(null); 
+        
+        size--;
+        
+        return temp;
+    }
+    
+    public Node removeLast() {
         Node temp = tail;
         tail = tail.getPrevNode();
         tail.setNextNode(null);
         
-        size--;        
+        size--;
+        
+        return temp;
     }
     
     public int listSize() {     
@@ -94,25 +111,9 @@ public class SimpleLinkedList <T>{
         
         size--;
     }
-    
-    public Node deleteAll(SimpleLinkedList list) {
-        if (size == 0) 
-            throw new RuntimeException("Lista vacía");
-        
-        Node temp = head;
-        
-        for (int i=0; i<size; i++){
-            head = head.getNextNode();
-            head.setPrevNode(null); 
-
-            size--;
-        }
-                
-        return temp;
-    }
 
     public boolean isEmpty() {
         return size == 0;
-    }
+    }        
         
 }

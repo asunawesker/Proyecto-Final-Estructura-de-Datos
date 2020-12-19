@@ -25,23 +25,29 @@ public class Queue <T> {
     }
     
     public void enqueue(T t) {
-        Node<T> nuevo = new Node<>(t);
+        Node newNode = new Node(t);
         
-        nuevo.setNextNode(head);
-        head = nuevo;
+        newNode.setNextNode(head);
+        newNode.setPrevNode(null);
+        
+        if(head!=null)
+            head.setPrevNode(newNode);
+        head = newNode;
+        if(tail==null)
+            tail=newNode;
     }
     
-    public Object dequeue() {
-        Object aux;
-        if (isEmpty())
-            return null;
-        aux = head.getNextNode();
-        head = head.getNextNode();
-        
-        return aux;
+     public void poll() {
+        Node temp = tail;
+        tail = tail.getPrevNode();
+        tail.setNextNode(null);  
     }
     
-    public T poll(int pos){
+    public T peek(){
+        return (T) head.getData(); 
+    }
+    
+    public T search(int pos){
         T dato=null;
         int cont=0;
         Node<T> aux=head;

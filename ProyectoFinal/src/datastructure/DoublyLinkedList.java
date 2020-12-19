@@ -51,17 +51,21 @@ public class DoublyLinkedList <T> {
     }
     
     public void addLast(T data) {
-        Node node = new Node(data);
-        if (head == null) {
-            head = node;
-        } else {
-            Node currentNode = head;
-            while(currentNode.getNextNode() != null) {
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode.setNextNode(node);
-        }
-        size++;
+        Node newNode = new Node(data);
+        
+        newNode.setData(data);
+        newNode.setNextNode(null);
+        newNode.setPrevNode(tail);
+        
+        if(tail!=null)
+            tail.setNextNode(newNode);
+        
+        tail = newNode;
+        
+        if(head==null)
+            head=newNode;
+        
+        size++; 
     }
     
     public Node removeFirst() {

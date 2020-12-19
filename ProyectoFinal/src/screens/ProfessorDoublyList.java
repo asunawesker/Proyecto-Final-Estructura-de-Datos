@@ -8,7 +8,7 @@ package screens;
 import datastructure.DoublyLinkedList;
 import datastructure.Node;
 import objects.Professor;
-import objects.Student;
+import objects.Professor;
 /**
  *
  * @author iragu
@@ -41,7 +41,6 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         txtLastName = new javax.swing.JTextField();
-        btnRemove = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtIdSearch = new javax.swing.JTextField();
         btnConsult = new javax.swing.JButton();
@@ -58,8 +57,10 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
+        btnRemoveLast = new javax.swing.JButton();
+        btnRemoveFirst = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,13 +99,6 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
-            }
-        });
-
-        btnRemove.setText("Eliminar");
-        btnRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveActionPerformed(evt);
             }
         });
 
@@ -149,6 +143,20 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
             }
         });
 
+        btnRemoveLast.setText("Eliminar ultimo");
+        btnRemoveLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveLastActionPerformed(evt);
+            }
+        });
+
+        btnRemoveFirst.setText("Eliminar primero");
+        btnRemoveFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveFirstActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,42 +164,37 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(419, 419, 419)
-                        .addComponent(labelInscritos)))
+                        .addComponent(labelInscritos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(72, 72, 72)
+                                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRemoveLast)
+                                .addGap(92, 92, 92)
+                                .addComponent(btnRemoveFirst))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(125, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(344, 344, 344)
-                .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(165, 165, 165)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnConsult))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(37, 37, 37)
-                        .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsult))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -242,9 +245,7 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(txtIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRemove)
-                            .addComponent(btnConsult)))
+                        .addComponent(btnConsult))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,22 +276,16 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnShow)
-                    .addComponent(btnOrder))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnRemoveLast)
+                        .addComponent(btnRemoveFirst)
+                        .addComponent(btnOrder)))
                 .addGap(35, 35, 35))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderActionPerformed
-
-    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // TODO add your handling code here:
-        showAllData();
-    }//GEN-LAST:event_btnShowActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
@@ -301,11 +296,6 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         addProfessor();
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
-        //deleteData();
-    }//GEN-LAST:event_btnRemoveActionPerformed
-
     private void btnConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultActionPerformed
         // TODO add your handling code here:
         searchDataAndShow();
@@ -315,6 +305,30 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
         // TODO add your handling code here:
         searchDataAndModify();
     }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        // TODO add your handling code here:
+        
+        sort();
+        
+    }//GEN-LAST:event_btnOrderActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        showAllData();
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnRemoveLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveLastActionPerformed
+        // TODO add your handling code here:
+        list.removeLast();
+        showAllData();
+    }//GEN-LAST:event_btnRemoveLastActionPerformed
+
+    private void btnRemoveFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFirstActionPerformed
+        // TODO add your handling code here:
+        list.removeFirst();
+        showAllData();
+    }//GEN-LAST:event_btnRemoveFirstActionPerformed
 
     
     public void addProfessor() {
@@ -361,27 +375,30 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
     }
     
     public void searchDataAndShow(){
-        int i = 0;
-        String matriz [][] = new String[1][4];
+        int id = Integer.parseInt(txtIdSearch.getText());
+        
         Node current = list.getHead();
         
-        while(current != null){
-            Professor professor = (Professor) list.search(i);  
-            matriz[0][0] = professor.getNombre();
-            matriz[0][1] = professor.getApellido();
-            matriz[0][2] = String.valueOf(professor.getId());
-           
-            current = current.getNextNode();
+        for(int i=0; i<list.listSize(); i++){
             
-            i++;
-        }
-        
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            matriz,
-            new String [] {
-                "Nombre", "Apellido", "ID"
+            Professor professor = (Professor) list.search(i);    
+            
+            if ( professor.getId()== id) {
+                
+                
+                String matriz [][] = new String[1][4];
+                matriz[0][0] = professor.getNombre();
+                matriz[0][1] = professor.getApellido();
+                matriz[0][2] = String.valueOf(professor.getId());
+                
+                jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz,
+                    new String [] {
+                        "Nombre", "Apellido", "ID"
+                    }
+                ));
             }
-        ));
+        }
     }
     
     public void searchDataAndModify() {
@@ -421,6 +438,50 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
             }           
             current = current.getNextNode();
             i++;
+        }
+    }
+    
+    public void sort() {
+        if (list.getSize() > 1) {
+            boolean wasChanged = true;
+            while( wasChanged ) {
+                Node current = list.getHead();
+                Node previous = null;
+                Node next = list.getHead().getNextNode();
+                wasChanged = false;
+                while ( next != null ) {
+                    Professor currentData = (Professor) current.getData();
+                    Professor nextData = (Professor) next.getData();
+                    
+                    int cDataEnrollment = currentData.getId();
+                    int nDataEnrollment = nextData.getId();
+                    
+                    if ( cDataEnrollment > nDataEnrollment ) {
+                        wasChanged = true;
+                        if ( previous != null ) {
+                            Node sig = next.getNextNode();
+
+                            previous.setNextNode(next);
+                            next.setNextNode(current);
+                            current.setNextNode(sig);
+                        } else {
+                            Node sig = next.getNextNode();
+                            
+                            Node cHead = list.getHead();
+                            cHead = next;
+                            next.setNextNode(current);
+                            current.setNextNode(sig);
+                        }
+
+                        previous = next;
+                        next = current.getNextNode();
+                    } else { 
+                        previous = current;
+                        current = next;
+                        next = next.getNextNode();
+                    }
+                } 
+            } 
         }
     }
     
@@ -479,7 +540,8 @@ public class ProfessorDoublyList extends javax.swing.JFrame {
     private javax.swing.JButton btnConsult;
     private javax.swing.JButton btnModify;
     private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnRemoveFirst;
+    private javax.swing.JButton btnRemoveLast;
     private javax.swing.JButton btnShow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
