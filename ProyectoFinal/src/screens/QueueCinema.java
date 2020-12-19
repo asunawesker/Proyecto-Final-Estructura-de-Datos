@@ -184,8 +184,7 @@ public class QueueCinema extends javax.swing.JFrame {
             }
         }
         
-        if (queue.listLength() != 0)
-            showData();
+        showData();
     }
     
     public void showData() {        
@@ -195,7 +194,8 @@ public class QueueCinema extends javax.swing.JFrame {
             new String [] {
                 "Edad", "Precio"
             }
-        ));       
+        ));
+        
     }
     
     public void searchDataAndShow(){
@@ -212,6 +212,7 @@ public class QueueCinema extends javax.swing.JFrame {
                 "Edad", "Precio"
             }
         ));
+        
     }
     
     public Object[][] matrix(Queue queue) {

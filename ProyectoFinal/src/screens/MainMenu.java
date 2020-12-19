@@ -48,7 +48,6 @@ public class MainMenu extends javax.swing.JFrame {
         btnStackList = new javax.swing.JMenuItem();
         btnQueue1 = new javax.swing.JMenu();
         btnQueueList = new javax.swing.JMenuItem();
-        btnExit = new javax.swing.JMenu();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -139,9 +138,6 @@ public class MainMenu extends javax.swing.JFrame {
         btnQueue1.add(btnQueueList);
 
         jMenuBar1.add(btnQueue1);
-
-        btnExit.setText("Salir");
-        jMenuBar1.add(btnExit);
 
         setJMenuBar(jMenuBar1);
 
@@ -271,7 +267,6 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnCircular;
     private javax.swing.JMenuItem btnDoubly;
-    private javax.swing.JMenu btnExit;
     private javax.swing.JMenu btnLinkedList;
     private javax.swing.JMenu btnQueue1;
     private javax.swing.JMenuItem btnQueueList;
