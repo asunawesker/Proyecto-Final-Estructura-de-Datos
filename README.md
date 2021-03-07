@@ -1,6 +1,4 @@
-# Proyecto-Final-Estructura-de-Datos
-
-# Proyecto Programación UV - Sección 301 
+# Proyecto Final de Estructura de Datos UV - Sección 301 
 
 **Autora**: _Iraís Aguirre Valente_
 
